@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travel App</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="GoogleAPI.css">
+    <!-- Google Maps API with Google Places API call -->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
+  </head>
+  <body>
+    <!-- The input div below is tied to Google Places' autocomplete feature, allowing users to narrow their searched
+    as they type.-->
+    <input type="text" id="autocomplete"> 
+    <div id="map"></div>
+
+
+
+    <!-- Google Maps API file -->
+    <script src="GoogleMapAPI.js"></script>
+    <!-- Firebase API -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="firebasemap.js"</script>
+  </body>
+</html>
