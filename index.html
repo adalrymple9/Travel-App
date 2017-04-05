@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="eventful_api.js"></script>
 </head>
 
 <body>
@@ -29,17 +30,15 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="input-group" id="searchField">
-                            <input type="text" class="form-control" placeholder="Keyword">
+                            <input type="text" class="form-control" id="iC" placeholder="Keyword">
                         </div>
                         <!-- /input-group -->
                     </div>
                     <!-- /.col-lg-6 -->
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Location">
-                            <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                            </span>
+                            <input type="text" class="form-control" id="iL" placeholder="Location">
+                            <span class="input-group-addon" onclick="getEventfulObjs()" id="locationSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                         </div>
                         <!-- /input-group -->
                     </div>
@@ -53,7 +52,7 @@
         <!-- Content Row -->
         <div class="row">
             <div class="col-md-4 text-center">
-                <div class="thumbnail">
+                <div class="thumbnail" id="th0">
                     <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                     <div class="caption">
                         <h3>Event<br>
@@ -76,7 +75,7 @@
                 <h2 class="page-header">Featured Events</h2>
             </div>
             <div class="col-md-3 text-center">
-                <div class="thumbnail">
+                <div class="thumbnail" id="th1">
                     <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                     <div class="caption">
                         <h3>Event<br>
@@ -87,7 +86,7 @@
                 </div>
             </div>
             <div class="col-md-3 text-center">
-                <div class="thumbnail">
+                <div class="thumbnail" id="th2">
                     <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                     <div class="caption">
                         <h3>Event<br>
@@ -98,7 +97,7 @@
                 </div>
             </div>
             <div class="col-md-3 text-center">
-                <div class="thumbnail">
+                <div class="thumbnail" id="th3">
                     <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                     <div class="caption">
                         <h3>Event<br>
@@ -109,7 +108,7 @@
                 </div>
             </div>
             <div class="col-md-3 text-center">
-                <div class="thumbnail">
+                <div class="thumbnail" id="th4">
                     <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                     <div class="caption">
                         <h3>Event<br>
@@ -124,6 +123,15 @@
     </div>
     <!-- /.container -->
     <!-- jQuery -->
+    <script>
+    $("#iC").val("Music");
+    $("#iL").val("Miami");
+    setTimeout(function() {
+        $("#iC").val("");
+        $("#iL").val("");
+    }, 3000);
+    getEventfulObjs();
+    </script>
 </body>
 
 </html>
