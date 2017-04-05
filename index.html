@@ -23,42 +23,43 @@
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-sm-12">
                 <h1 class="page-header">Events
                 </h1>
-                <form class="main-search border-less-inputs inputs-3" role="form" method="post">
-                    <div class="input-row">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter Event Type (Music, Food, Etc.)" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="eventSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="input-group" id="searchField">
+                            <input type="text" class="form-control" placeholder="Keyword">
                         </div>
-                        <br>
-                        <!-- /.form-group -->
-                        <div class="input-row">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search Location" aria-describedby="basic-addon2">
-                                <span class="input-group-addon" id="locationSearch"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></span>
-                            </div>
-                        </div>
+                        <!-- /input-group -->
                     </div>
-                    <!-- /.input-row -->
-                </form>
+                    <!-- /.col-lg-6 -->
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Location">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
                 <!-- /input-group -->
             </div>
         </div>
         <br>
         <!-- Content Row -->
         <div class="row">
-            <div class="col-md-4">
-                <div class="col-md-12 text-center">
-                    <div class="thumbnail">
-                        <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                        <div class="caption">
-                            <h3>Event<br>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                    <div class="caption">
+                        <h3>Event<br>
                             <small>Event Type</small>
                         </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
                     </div>
                 </div>
             </div>
