@@ -22,3 +22,7 @@ h1, h2{
 #searchField{
 	width: 100%;
 }
+
+#map {
+	height: 400px;
+}
