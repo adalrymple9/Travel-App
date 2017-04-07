@@ -25,7 +25,7 @@ function initMap(events) {
    // Create a for loop to look into each of the objects and display lat and long
     var location = [];
     events.forEach(function(venue) {
-        location.push({ lat: parseFloat(venue.latitude), lng: parseFloat(venue.longitude) });    
+       location.push({ lat: parseFloat(venue.latitude), lng: parseFloat(venue.longitude) });    
     }); // End of for loop
     
     //For Loop to create a Marker for each corresponding index in the array
