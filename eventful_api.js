@@ -84,8 +84,7 @@ function queryEventfulAPI(oArgs, d1)
           (
             moment(evts.event[i].start_time).format("dddd, MMMM D, YYYY, h:mm:ss a") + "<br>" + 
             evts.event[i].venue_name + "<br>" + 
-            evts.event[i].venue_address + "<br>" + evts.event[i].city_name + "<br>" +
-            "Lat/Long=" + evts.event[i].latitude + ", " + evts.event[i].longitude
+            evts.event[i].venue_address + "<br>" + evts.event[i].city_name
           );
         $("#th" + i + " img").attr("src", evts.event[i].image.medium.url);
       }

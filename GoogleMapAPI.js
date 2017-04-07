@@ -28,10 +28,10 @@ function initMap(events) {
     var location = [],
         venue_names = [];
     // events.forEach(function(venue) {
-    for (var i = 0; i < events.event.length; i++) {
-        if (!venue_names.includes(events.event[i].venue_name)){
-            location.push([{ lat: parseFloat(events.event[i].latitude), lng: parseFloat(events.event[i].longitude) }, events.event[i].venue_url, events.event[i].venue_name]);
-            venue_names.push(events.event[i].venue_name);
+    for (var i0 = 0; i0 < events.event.length; i0++) {
+        if (!venue_names.includes(events.event[i0].venue_name)){
+            location.push([{ lat: parseFloat(events.event[i0].latitude), lng: parseFloat(events.event[i0].longitude) }, events.event[i0].venue_url, events.event[i0].venue_name]);
+            venue_names.push(events.event[i0].venue_name);
             console.log(venue_names);
         }
     }
@@ -40,7 +40,7 @@ function initMap(events) {
     //For Loop to create a Marker for each corresponding index in the array
     var labelCounter = 0;
     console.log("location.length=", location.length);
-    for (i = 0; i < location.length; i++) {
+    for (var i1 = 0; i1 < location.length; i1++) {
         if (labelCounter > 25){
             labelChar = "";
         } else {
@@ -48,11 +48,11 @@ function initMap(events) {
             labelCounter++;
         }
         var marker = new google.maps.Marker({
-            position: location[i][0],
+            position: location[i1][0],
             map: map,
             label: labelChar,
-            url: location[i][1],
-            title: location[i][2]
+            url: location[i1][1],
+            title: location[i1][2]
         });//End of marker
 
         google.maps.event.addListener(marker, 'click', function(){
