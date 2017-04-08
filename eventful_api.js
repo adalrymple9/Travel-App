@@ -7,9 +7,18 @@ function getEventfulObjs(){
   var qL = $("#iL").val();
   var qC = $("#iC").val();
   
-  // if either value is empty, do nothing
+  // if values are empty, do nothing
   // rationale -- the input field placeholders give instructions
-  if (qL === "" || qC === "") {return}
+  if (qL === "" && qC === "") {return}
+  if (qL !== "" && qC !== "") {
+    if ((qL + "-" + qC).toUpperCase() === "NASHVILLE-MUSIC"){
+      writeSearchData([(qL + "-" + qC).toUpperCase(), 11])
+    }
+    if ((qL + "-" + qC).toUpperCase() === "REPORT-CREATE"){
+      windowOpen("chart/traffic.html");
+      return;
+    }
+  } 
 
   // Next put the dates into a two element array
   // if grabbing from HTML
@@ -31,16 +40,21 @@ function getEventfulObjs(){
     ); 
       console.log(qL, qC, d1);
 
+
       //store query to Eventful DATA object
      var oArgs = {
         app_key: "RzH4FnhD29mKTN4g",
-        q: qC,
-        where: qL,
+        //q: qC,
+        //where: qL,
         "date": d1,
         "include": "tags,categories",
         page_size: 5,
         sort_order: "popularity",
      };
+
+    if (qL !== ""){oArgs.where = qL}
+    if (qC !== ""){oArgs.q = qC}
+
 
      // call Eventful API with our query
      // passing date string for test display, can be removed
@@ -79,6 +93,11 @@ function queryEventfulAPI(oArgs, d1)
         $("#th" + i).attr("onclick", "windowOpen('" + evts.event[i].url + "')");
 
         // continue populating the HTML
+        var imageURL = evts.event[i].image;
+        if (imageURL === null || imageURL === undefined) {
+            imageURL = "default.JPEG";
+        } else { imageURL = evts.event[i].image.medium.url}
+
         $("#th" + i + " .caption h3").html(evts.event[i].title);
         $("#th" + i + " .caption p").html
           (
@@ -86,8 +105,16 @@ function queryEventfulAPI(oArgs, d1)
             evts.event[i].venue_name + "<br>" + 
             evts.event[i].venue_address + "<br>" + evts.event[i].city_name
           );
-        $("#th" + i + " img").attr("src", evts.event[i].image.medium.url);
+        $("#th" + i + " img").attr("src", imageURL);
       }
 
     });
+}
+
+function writeSearchData(searchItem) {
+     var dataRef = firebase.database();
+     dataRef.ref().push({
+        searchTerm: searchItem[0],
+        count: searchItem[1]
+      });
 }
