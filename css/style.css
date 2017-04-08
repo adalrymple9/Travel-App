@@ -26,3 +26,10 @@ h1, h2{
 #map {
 	height: 400px;
 }
+html,body {
+    height:100%;
+}
+
+#th1,#th2,#th3,#th4 {
+    height: 350px;
+}
